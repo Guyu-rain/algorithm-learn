@@ -6,7 +6,7 @@ using namespace std;
 
 // 引入虚拟头尾节点，用来处理空链表的情况 - 虚拟节点对外透明
 template<typename E>
-class MyLinkList {
+class MyLinkedList {
     struct Node {
         E val;
         Node* next;
@@ -20,7 +20,7 @@ class MyLinkList {
     int size;
 
 public:
-    MyLinkList() {
+    MyLinkedList() {
         head = new Node(E());
         tail = new Node(E());
         head->next = tail;
@@ -28,7 +28,7 @@ public:
         size = 0;
     }
 
-    ~MyLinkList() {
+    ~MyLinkedList() {
         while (size > 0) {
             removeFirst();
         }
@@ -54,6 +54,7 @@ public:
         x->prev = head;
         head->next->prev = x;
         head->next = x;
+        size++;
     }
 
     void add(int index, E element) {
@@ -85,7 +86,7 @@ public:
         head->next = x->next;
         x->next->prev = head;
 
-        E val = x.val;
+        E val = x->val;
         delete x;
 
         size--;
@@ -170,7 +171,7 @@ public:
     void display() {
         std::cout << "size = " << size << std::endl;
         for (Node* p = head->next; p != tail; p = p->next) {
-            std::cout << p->val << "<->";
+            std::cout << p->val << " <-> ";
         }
         std::cout << "nullptr" << std::endl;
         std::cout << std::endl;
@@ -186,12 +187,36 @@ private: // 隐藏`head, tail`
     }
 
     bool isElementIndex(int index) const {
-        
+        return index >= 0 && index < size;
+    }
+
+    bool isPositionIndex(int index) const {
+        return index >= 0 && index <= size;
+    }
+
+    // 检查index索引位置是否可以存在元素
+    void checkElementIndex(int index) const {
+        if (!isElementIndex(index))
+        throw std::out_of_range("Index: " + std::to_string(index) + ", Size: " + std::to_string(size));
+    }
+
+    // 检查 index 索引是否可以添加元素
+    void checkPositionIndex(int index) const {
+        if(!isPositionIndex(index))
+            throw std::out_of_range("Index: " + std::to_string(index) + ", Size: " + std::to_string(size));
     }
 };
 
 int main() {
+    MyLinkedList<int> list;
+    list.addLast(1);
+    list.addLast(2);
+    list.addLast(3);
+    list.addFirst(0);
+    list.add(2, 100);
 
-
+    list.display();
+    // size = 5
+    // 0 <-> 1 <-> 100 <-> 2 <-> 3 <-> null
     return 0;
 }

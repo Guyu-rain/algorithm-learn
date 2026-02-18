@@ -1,1 +1,45 @@
+# OS junk
 .DS_Store
+Thumbs.db
+
+# C/C++ build outputs
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+
+# Debug / profiling artifacts
+*.ilk
+*.pdb
+*.idb
+*.dSYM/
+*.stackdump
+
+# Generic build directories
+build/
+bin/
+obj/
+out/
+dist/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# Visual Studio
+.vs/
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+*.vcxproj.user
+
+# VS Code
+.vscode/
