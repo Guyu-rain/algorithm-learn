@@ -43,3 +43,7 @@ Makefile
 
 # VS Code
 .vscode/
+
+# test / demo
+test.cpp
+demo.cpp
