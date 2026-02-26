@@ -23,8 +23,5 @@ for (auto& [k, v] : hashmap) {
 ```
 
 - `{}`用来赋初始值，如`int x{3};`
-- `[]`用于结构化绑定，用于解构。用于：`std::pair`, `std::tuple`
-```C++
-auto [x, y, z] = t; // tuple<int, int, std::string> t{1, 2, "a"};
-auto [a, b] = p;
-```
+
+- `pop()`之前先判`!empty()`
