@@ -2,6 +2,8 @@
 
 - 传递STL等空间开销较大的对象时，传引用。如：`void foo(vector& vec) { /*...*/}`
 
+### 所有的`Set(集合)`都是`Map(表)`的简单封装
+
 ### 一些注意点
 - **哈希集合**`unordered_set<const V>`中的元素不可改，数据类型是`const V`
 ```C++
