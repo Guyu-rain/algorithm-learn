@@ -12,6 +12,7 @@ using namespace std;
 void bubbleSort(vector<int>& nums) {
     int n = nums.size();
     int sortedIndex = 0; // 循环变量，每次从 (n-1) -> sortedIndex
+    
     while(sortedIndex < n) { // 循环 n 次
         bool swapped = false;
         for (int i = n - 1; i > sortedIndex; i--) {
