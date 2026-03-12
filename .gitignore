@@ -45,5 +45,6 @@ Makefile
 .vscode/
 
 # test / demo
+test
 test.cpp
 demo.cpp
